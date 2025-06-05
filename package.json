@@ -1,0 +1,12 @@
+{
+  "name": "eleventy-recipes",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "serve": "eleventy --serve"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "^1.0.0",
+    "slugify": "^1.6.6"
+  }
+}
