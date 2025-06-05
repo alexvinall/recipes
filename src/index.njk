@@ -5,16 +5,19 @@ title: Recipes
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ title }}</title>
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-  <h1>{{ title }}</h1>
-  <ul>
-  {% for recipe in collections.recipes %}
-    <li><a href="{{ recipe.url }}">{{ recipe.data.title }}</a> - {{ recipe.date | date('MMMM d, yyyy') }}</li>
-  {% endfor %}
-  </ul>
+  <main class="container">
+    <h1>{{ title }}</h1>
+    <ul class="recipe-list">
+    {% for recipe in collections.recipes %}
+      <li><a href="{{ recipe.url }}">{{ recipe.data.title }}</a> - {{ recipe.date | date('MMMM d, yyyy') }}</li>
+    {% endfor %}
+    </ul>
+  </main>
 </body>
 </html>
 
