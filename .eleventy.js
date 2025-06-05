@@ -8,11 +8,19 @@ module.exports = function(eleventyConfig) {
   );
 
   eleventyConfig.addFilter('slug', str => slugify(str, { lower: true }));
+  eleventyConfig.addFilter('date', dateObj =>
+    new Date(dateObj).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  );
 
   return {
     dir: {
       input: 'src',
-      output: '_site'
+      output: '_site',
+      layouts: 'layouts'
     }
   };
 };
