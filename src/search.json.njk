@@ -1,0 +1,12 @@
+---
+permalink: search.json
+---
+[
+{% for recipe in collections.recipes %}
+  {
+    "title": {{ recipe.data.title | jsonify }},
+    "url": {{ recipe.url | jsonify }},
+    "content": {{ recipe.templateContent | striptags | jsonify }}
+  }{% if not loop.last %},{% endif %}
+{% endfor %}
+]

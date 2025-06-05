@@ -15,6 +15,7 @@ module.exports = function(eleventyConfig) {
       day: 'numeric'
     })
   );
+  eleventyConfig.addFilter('jsonify', value => JSON.stringify(value));
 
   return {
     pathPrefix: '/recipes/',
