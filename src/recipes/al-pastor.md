@@ -1,5 +1,5 @@
 ---
-title: Slow Cooker Al Pastor (Enhanced)
+title: Slow Cooker Al Pastor
 date: 2025-01-01
 tags: [easy, dinner]
 layout: recipe.njk
