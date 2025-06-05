@@ -12,11 +12,51 @@ title: "Alex's recipes"
 <body>
   <main class="container">
     <h1>{{ title }}</h1>
+    <input id="searchInput" type="search" placeholder="Search recipes">
+    <ul id="searchResults" class="recipe-list" hidden></ul>
     <ul class="recipe-list">
     {% for recipe in collections.recipes %}
       <li><a href="{{ recipe.url }}">{{ recipe.data.title }}</a> - {{ recipe.date | date('MMMM d, yyyy') }}</li>
     {% endfor %}
     </ul>
+    <script>
+    const searchInput = document.getElementById('searchInput');
+    const resultsList = document.getElementById('searchResults');
+    let index = [];
+    fetch('{{ "/search.json" | url }}')
+      .then(r => r.json())
+      .then(data => index = data);
+
+    function renderResults(items) {
+      resultsList.innerHTML = '';
+      if (items.length === 0) {
+        resultsList.hidden = true;
+        return;
+      }
+      items.forEach(item => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = item.url;
+        a.textContent = item.title;
+        li.appendChild(a);
+        resultsList.appendChild(li);
+      });
+      resultsList.hidden = false;
+    }
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      if (!query) {
+        renderResults([]);
+        return;
+      }
+      const matches = index.filter(r =>
+        r.title.toLowerCase().includes(query) ||
+        r.content.toLowerCase().includes(query)
+      );
+      renderResults(matches);
+    });
+    </script>
   </main>
 </body>
 </html>
