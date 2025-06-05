@@ -4,9 +4,9 @@ permalink: search.json
 [
 {% for recipe in collections.recipes %}
   {
-    "title": {{ recipe.data.title | jsonify }},
-    "url": {{ recipe.url | jsonify }},
-    "content": {{ recipe.templateContent | striptags | jsonify }}
+    "title": {{ recipe.data.title | jsonify | safe }},
+    "url": {{ recipe.url | jsonify | safe }},
+    "content": {{ recipe.templateContent | striptags | jsonify | safe }}
   }{% if not loop.last %},{% endif %}
 {% endfor %}
 ]
