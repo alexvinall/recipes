@@ -17,6 +17,7 @@ module.exports = function(eleventyConfig) {
   );
 
   return {
+    pathPrefix: '/recipes/',
     dir: {
       input: 'src',
       output: '_site',
