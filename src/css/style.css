@@ -1,5 +1,46 @@
 body {
-  font-family: sans-serif;
-  line-height: 1.5;
-  margin: 2rem;
+  background-color: #121212;
+  color: #eaeaea;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+h1, h2, h3 {
+  color: #ffd54f;
+  margin-top: 0;
+}
+
+a {
+  color: #ffea3d;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.recipe-list {
+  list-style: none;
+  padding: 0;
+}
+
+.recipe-list li {
+  margin-bottom: 0.5rem;
+}
+
+.recipe time {
+  display: block;
+  margin-bottom: 1rem;
+  color: #bbb;
+}
+
+.tags {
+  margin-top: 2rem;
 }
