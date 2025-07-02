@@ -3,7 +3,7 @@ title: Slow Cooker Al Pastor
 date: 2025-01-01
 tags: [easy, dinner]
 layout: recipe.njk
-permalink: /recipes/al-pastor/
+permalink: /al-pastor/
 ---
 
 # {{ title }}
