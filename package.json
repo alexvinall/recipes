@@ -6,7 +6,21 @@
     "serve": "eleventy --serve"
   },
   "dependencies": {
-    "@11ty/eleventy": "^3.1.1",
+    "@11ty/eleventy": "^3.1.2",
     "slugify": "^1.6.6"
-  }
+  },
+  "version": "1.0.0",
+  "main": ".eleventy.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexvinall/recipes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexvinall/recipes/issues"
+  },
+  "homepage": "https://github.com/alexvinall/recipes#readme",
+  "description": ""
 }

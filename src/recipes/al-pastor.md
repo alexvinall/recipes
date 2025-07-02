@@ -6,6 +6,8 @@ layout: recipe.njk
 permalink: /recipes/al-pastor/
 ---
 
+# {{ title }}
+
 ## Ingredients
 - 1.5–2 kg pork shoulder, sliced into thick 1–2 cm slabs
 - 2–3 tbsp achiote paste
