@@ -3,7 +3,7 @@ title: Orange Chicken
 date: 2025-07-02
 tags: [easy, dinner]
 layout: recipe.njk
-permalink: /recipes/orange-chicken/
+permalink: /orange-chicken/
 ---
 
 # {{ title }}
