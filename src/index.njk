@@ -10,15 +10,30 @@ title: "Alex's recipes"
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
 </head>
 <body>
-  <main class="container">
-    <h1>{{ title }}</h1>
-    <input id="searchInput" type="search" placeholder="Search recipes">
-    <ul id="searchResults" class="recipe-list" hidden></ul>
-    <ul class="recipe-list">
-    {% for recipe in collections.recipes %}
-      <li><a href="{{ recipe.url }}">{{ recipe.data.title }}</a> - {{ recipe.date | date('MMMM d, yyyy') }}</li>
-    {% endfor %}
-    </ul>
+  <main class="container stack">
+    <header class="page-header stack">
+      <h1>{{ title }}</h1>
+      <p class="lede">Simple, flavourful recipes to cook at home.</p>
+      <input id="searchInput" type="search" placeholder="Search recipes" aria-label="Search recipes">
+    </header>
+
+    <section aria-live="polite" aria-label="Search results">
+      <ul id="searchResults" class="recipe-grid" hidden></ul>
+    </section>
+
+    <section>
+      <ul class="recipe-grid">
+      {% for recipe in collections.recipes %}
+        <li class="recipe-card">
+          <a class="recipe-link" href="{{ recipe.url | url }}">
+            <h2>{{ recipe.data.title }}</h2>
+            <p>Published <time datetime="{{ recipe.date | htmlDate }}">{{ recipe.date | date('MMMM d, yyyy') }}</time></p>
+          </a>
+        </li>
+      {% endfor %}
+      </ul>
+    </section>
+
     <script>
     const searchInput = document.getElementById('searchInput');
     const resultsList = document.getElementById('searchResults');
@@ -35,9 +50,16 @@ title: "Alex's recipes"
       }
       items.forEach(item => {
         const li = document.createElement('li');
+        li.className = 'recipe-card';
+
         const a = document.createElement('a');
+        a.className = 'recipe-link';
         a.href = item.url;
-        a.textContent = item.title;
+
+        const title = document.createElement('h2');
+        title.textContent = item.title;
+
+        a.appendChild(title);
         li.appendChild(a);
         resultsList.appendChild(li);
       });
@@ -60,4 +82,3 @@ title: "Alex's recipes"
   </main>
 </body>
 </html>
-
