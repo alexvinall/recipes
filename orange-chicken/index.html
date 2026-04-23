@@ -7,10 +7,12 @@
   <link rel="stylesheet" href="/recipes/css/style.css">
 </head>
 <body>
-  <main class="container">
+  <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme">Toggle theme</button>
+
+  <main class="container stack">
+    <p><a href="/recipes/">← Back to all recipes</a></p>
     <article class="recipe">
-      <h1>Orange Chicken</h1>
-      <time datetime="July 2, 2025">July 2, 2025</time>
+      <time datetime="2025-07-02">July 2, 2025</time>
       <h1>Orange Chicken</h1>
 <h2>🧂 Ingredients</h2>
 <h3>Chicken</h3>
@@ -42,7 +44,7 @@
 <li>Extra <strong>chilli flakes</strong> for heat</li>
 </ul>
 <hr>
-<h2>Method</h2>
+<h2>🧑‍🍳 Method</h2>
 <ol>
 <li>
 <h3>Prep Chicken</h3>
@@ -98,7 +100,7 @@
 </li>
 </ol>
 <hr>
-<h2>🥦 Optional Sides</h2>
+<h2>🍞 Optional Sides</h2>
 <ul>
 <li><strong>Steamed broccoli</strong> or <strong>pak choi</strong></li>
 <li>Stir-fried veggies with sesame oil</li>
@@ -111,8 +113,33 @@
 <li>Sauce too thick? Add a splash of water or orange juice.</li>
 </ul>
 
-      <p class="tags">Tags: <a href="/tags/easy">easy</a>, <a href="/tags/dinner">dinner</a></p>
+      <p class="tags">Tags: <a href="/recipes/tags/easy/">easy</a>, <a href="/recipes/tags/dinner/">dinner</a></p>
     </article>
   </main>
+
+  <script>
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+
+  function getActiveTheme() {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    themeToggle.textContent = theme === 'dark' ? '☀️ Light mode' : '🌙 Dark mode';
+    themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  setTheme(getActiveTheme());
+
+  themeToggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    setTheme(next);
+  });
+  </script>
 </body>
 </html>

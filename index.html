@@ -3,22 +3,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alex&#39;s recipes</title>
+  <title>Recipes</title>
   <link rel="stylesheet" href="/recipes/css/style.css">
 </head>
 <body>
-  <main class="container">
-    <h1>Alex&#39;s recipes</h1>
-    <input id="searchInput" type="search" placeholder="Search recipes">
-    <ul id="searchResults" class="recipe-list" hidden></ul>
-    <ul class="recipe-list">
-    
-      <li><a href="/orange-chicken/">Orange Chicken</a> - July 2, 2025</li>
-    
-      <li><a href="/al-pastor/">Slow Cooker Al Pastor</a> - January 1, 2025</li>
-    
-    </ul>
+  <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme">Toggle theme</button>
+
+  <main class="container stack">
+    <header class="page-header stack">
+      <h1>Recipes</h1>
+      <p class="lede">Recipes we cook regularly at home for our family.</p>
+      <input id="searchInput" type="search" placeholder="Search recipes" aria-label="Search recipes">
+    </header>
+
+    <section aria-live="polite" aria-label="Search results">
+      <ul id="searchResults" class="recipe-grid" hidden></ul>
+    </section>
+
+    <section>
+      <ul class="recipe-grid">
+      
+        <li class="recipe-card">
+          <a class="recipe-link" href="/recipes/orange-chicken/">
+            <h2>Orange Chicken</h2>
+            <p>Published <time datetime="2025-07-02">July 2, 2025</time></p>
+          </a>
+        </li>
+      
+        <li class="recipe-card">
+          <a class="recipe-link" href="/recipes/al-pastor/">
+            <h2>Slow Cooker Al Pastor</h2>
+            <p>Published <time datetime="2025-01-01">January 1, 2025</time></p>
+          </a>
+        </li>
+      
+      </ul>
+    </section>
+
     <script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+
+    function getActiveTheme() {
+      const stored = localStorage.getItem('theme');
+      if (stored === 'light' || stored === 'dark') return stored;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+
+    function setTheme(theme) {
+      root.setAttribute('data-theme', theme);
+      themeToggle.textContent = theme === 'dark' ? '☀️ Light mode' : '🌙 Dark mode';
+      themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+    }
+
+    setTheme(getActiveTheme());
+
+    themeToggle.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', next);
+      setTheme(next);
+    });
+
     const searchInput = document.getElementById('searchInput');
     const resultsList = document.getElementById('searchResults');
     let index = [];
@@ -34,9 +79,16 @@
       }
       items.forEach(item => {
         const li = document.createElement('li');
+        li.className = 'recipe-card';
+
         const a = document.createElement('a');
+        a.className = 'recipe-link';
         a.href = item.url;
-        a.textContent = item.title;
+
+        const title = document.createElement('h2');
+        title.textContent = item.title;
+
+        a.appendChild(title);
         li.appendChild(a);
         resultsList.appendChild(li);
       });
@@ -59,4 +111,3 @@
   </main>
 </body>
 </html>
-
