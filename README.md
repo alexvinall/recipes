@@ -1,4 +1,8 @@
-# Recipes site
+# Recipes
+
+Recipes we cook regularly at home for our family.
+
+Zero ads.
 
 This project is built with [Eleventy](https://www.11ty.dev/).
 
