@@ -1,11 +1,11 @@
 :root {
   color-scheme: light dark;
-  --bg: #f6f7fb;
+  --bg: #fff4cc;
   --surface: #ffffff;
   --text: #1f2937;
   --muted: #6b7280;
   --accent: #2563eb;
-  --accent-soft: #dbeafe;
+  --accent-soft: #ffe7a8;
   --border: #e5e7eb;
   --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }

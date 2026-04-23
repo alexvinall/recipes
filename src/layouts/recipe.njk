@@ -10,7 +10,6 @@
   <main class="container stack">
     <p><a href="{{ '/' | url }}">← Back to all recipes</a></p>
     <article class="recipe">
-      <h1>{{ title }}</h1>
       <time datetime="{{ date | htmlDate }}">{{ date | date('MMMM d, yyyy') }}</time>
       {{ content | safe }}
       <p class="tags">Tags: {% for tag in tags %}<a href="{{ ('/tags/' + (tag | slug) + '/') | url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
