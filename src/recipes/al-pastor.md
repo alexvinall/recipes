@@ -8,7 +8,7 @@ permalink: /al-pastor/
 
 # {{ title }}
 
-## Ingredients
+## 🧂 Ingredients
 - 1.5–2 kg pork shoulder, sliced into thick 1–2 cm slabs
 - 2–3 tbsp achiote paste
 - 2–3 dried guajillo chiles, stemmed and seeded
@@ -24,7 +24,7 @@ permalink: /al-pastor/
 - 1 tbsp salt
 - 1 thick slice of fresh pineapple, for topping during cooking
 
-## Method
+## 🧑‍🍳 Method
 1. **Soften the Guajillos**
    - Soak guajillo chiles in hot water for 10 minutes until soft.
 2. **Blend the Marinade**
