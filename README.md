@@ -1,5 +1,7 @@
 # Recipes
 
+[https://alexvinall.github.io/recipes/](https://alexvinall.github.io/recipes/)
+
 Recipes we cook regularly at home for our family.
 
 Zero ads.
