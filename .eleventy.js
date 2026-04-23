@@ -17,6 +17,10 @@ module.exports = function(eleventyConfig) {
   );
   eleventyConfig.addFilter('jsonify', value => JSON.stringify(value));
 
+  eleventyConfig.addFilter('htmlDate', dateObj =>
+    new Date(dateObj).toISOString().slice(0, 10)
+  );
+
   return {
     pathPrefix: '/recipes/',
     dir: {

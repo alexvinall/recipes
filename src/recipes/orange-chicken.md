@@ -37,7 +37,7 @@ permalink: /orange-chicken/
 
 ---
 
-## Method
+## 🧑‍🍳 Method
 
 1. ### Prep Chicken
    - In a bowl, combine chicken thighs with **salt**, **pepper**, and **cornflour**.
@@ -72,7 +72,7 @@ permalink: /orange-chicken/
 
 ---
 
-## 🥦 Optional Sides
+## 🍞 Optional Sides
 - **Steamed broccoli** or **pak choi**
 - Stir-fried veggies with sesame oil
 
