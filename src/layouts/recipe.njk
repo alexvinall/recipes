@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
 </head>
 <body>
+  <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle color theme">Toggle theme</button>
+
   <main class="container stack">
     <p><a href="{{ '/' | url }}">← Back to all recipes</a></p>
     <article class="recipe">
@@ -15,5 +17,30 @@
       <p class="tags">Tags: {% for tag in tags %}<a href="{{ ('/tags/' + (tag | slug) + '/') | url }}">{{ tag }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>
     </article>
   </main>
+
+  <script>
+  const root = document.documentElement;
+  const themeToggle = document.getElementById('themeToggle');
+
+  function getActiveTheme() {
+    const stored = localStorage.getItem('theme');
+    if (stored === 'light' || stored === 'dark') return stored;
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+
+  function setTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    themeToggle.textContent = theme === 'dark' ? '☀️ Light mode' : '🌙 Dark mode';
+    themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+  }
+
+  setTheme(getActiveTheme());
+
+  themeToggle.addEventListener('click', () => {
+    const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    localStorage.setItem('theme', next);
+    setTheme(next);
+  });
+  </script>
 </body>
 </html>

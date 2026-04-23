@@ -10,16 +10,27 @@
   --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
 }
 
+:root[data-theme='dark'] {
+  --bg: #2a2a2a;
+  --surface: #1a1a1a;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --accent: #93c5fd;
+  --accent-soft: #3a3a3a;
+  --border: #3f3f46;
+  --shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0b1020;
-    --surface: #151b2e;
+  :root:not([data-theme='light']) {
+    --bg: #2a2a2a;
+    --surface: #1a1a1a;
     --text: #e5e7eb;
     --muted: #9ca3af;
     --accent: #93c5fd;
-    --accent-soft: #1e3a8a;
-    --border: #25304b;
-    --shadow: 0 12px 36px rgba(2, 6, 23, 0.45);
+    --accent-soft: #3a3a3a;
+    --border: #3f3f46;
+    --shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
   }
 }
 
@@ -43,6 +54,21 @@ body {
 
 .stack > * + * {
   margin-top: 1rem;
+}
+
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 0.45rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  z-index: 10;
 }
 
 .page-header h1,
